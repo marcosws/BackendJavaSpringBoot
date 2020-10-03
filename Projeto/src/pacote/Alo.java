@@ -1,8 +1,11 @@
 package pacote;
 
-public class Alo {
+import javax.swing.JOptionPane;
 
-	public static void main(String[] args){
-		System.out.println("Alo Mundo Java!");
-	}
+public class Alo {
+    public static void main(String[] args){
+        String nome = JOptionPane.showInputDialog("Digite uma mensagem");
+        JOptionPane.showMessageDialog(null, nome  + ", seja bem vindo!");
+        System.exit(0);
+    }
 }
