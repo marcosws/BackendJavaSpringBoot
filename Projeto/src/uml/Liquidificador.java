@@ -20,15 +20,4 @@ public class Liquidificador extends Eletrodomestico{
     public void setVelocidade(String velocidade) {
         this.velocidade = velocidade;
     }
-    
-    @Override
-    void ligar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    void desligar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

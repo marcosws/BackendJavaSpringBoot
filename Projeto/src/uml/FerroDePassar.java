@@ -20,15 +20,5 @@ public class FerroDePassar extends Eletrodomestico {
     public void setTermostato(String termostato) {
         this.termostato = termostato;
     }
-    
-    @Override
-    void ligar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
-    @Override
-    void desligar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

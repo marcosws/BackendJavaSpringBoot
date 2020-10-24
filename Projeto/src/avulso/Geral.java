@@ -7,6 +7,7 @@ package avulso;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 /**
  *
@@ -25,7 +26,7 @@ public class Geral {
         usuario1.setId(2);
         usuario1.setNome("João");
         usuarios.add(usuario1);
-        usuarios.forEach((e) ->{
+        usuarios.forEach((Usuario e) -> {
             System.out.println("id: " + e.getId());
             System.out.println("Nome: " + e.getNome());
             System.out.println("=================================");

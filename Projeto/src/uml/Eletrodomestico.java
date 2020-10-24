@@ -39,15 +39,58 @@ package uml;
  * 
  * @author FIC
  */
-public abstract class Eletrodomestico {
+public class Eletrodomestico {
     
     private String tensao;
     private String cor;
     private String potencia;
-            
-    abstract void ligar();
+    private String marca;
+    private String modelo;
     
-    abstract void desligar();
+    private boolean ligado;
+
+    public boolean isLigado() {
+        return ligado;
+    }
+
+    public void setLigado(boolean ligado) {
+        this.ligado = ligado;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+            
+    public void ligar(){
+        System.out.println("Ligado");
+        this.setLigado(true);
+    }
+     public void ligar(String nome){
+        System.out.println(nome + ": Ligado");
+        this.setLigado(true);
+    }
+    
+    public void desligar(String nome){
+        System.out.println(nome + ": Desligado");
+        this.setLigado(false);
+    }
+     
+    public void desligar(){
+        System.out.println("Desligado");
+        this.setLigado(false);
+    }
 
     public String getTensao() {
         return tensao;
