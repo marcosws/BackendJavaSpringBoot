@@ -5,10 +5,44 @@
  */
 package uml.caixadedialogo;
 
+import javax.swing.JOptionPane;
+
 /**
- *
+ *      Caixa de Dialogo
+        -----------------
+        texto
+        titulo
+        -----------------
+        abrir();
+        * 
  * @author FIC
  */
 public class CaixaDeDialogo {
+    
+    String texto;
+    String titulo;
+    
+    public void abrir(){
+        JOptionPane.showConfirmDialog(null,this.getTexto(), this.getTitulo(), JOptionPane.YES_OPTION);
+    }
+
+    public String getTexto() {
+        return texto;
+    }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
+    
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+    
+    
+    
     
 }
