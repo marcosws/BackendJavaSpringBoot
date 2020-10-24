@@ -12,14 +12,19 @@ package uml.eletrodomestico;
 public class FerroDePassar extends Eletrodomestico { // 'FerroDePassar' herda a classe 'Eletrodomestico'
     
     /* Atributos */
-    private String termostato;
+    private String temperatura;
 
-    /* Getter e Setter */
-    public String getTermostato() {
-        return termostato;
+    public void ajustaTemperatura(String temperatura){
+        this.setTemperatura(temperatura);
+        System.out.println("Temperatura ajustada para:  " + this.getTemperatura());
     }
-    public void setTermostato(String termostato) {
-        this.termostato = termostato;
+    
+    /* Getter e Setter */
+    public String getTemperatura() {
+        return temperatura;
+    }
+    public void setTemperatura(String temperatura) {
+        this.temperatura = temperatura;
     }
     
 }

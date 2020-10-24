@@ -6,12 +6,23 @@
 package uml.eletrodomestico;
 
 /**
- *
+ * *                   
+  Eletrodomestico   ->   Ferro de Passar    
+  ------------------     ------------------        
+  +tensao                +temperatura
+  +cor                   ------------------
+  +potencia              ajustaTemperatura()
+  +marca
+  +modelo
+  +ligado
+  ------------------
+  ligar()
+  desligar()
+======================================================================
  * @author Marcos
  */
 public class Eletrodomestico {
-    
-    
+   
     /* atributos */
     private String tensao;
     private String cor;
@@ -26,16 +37,9 @@ public class Eletrodomestico {
         System.out.println("Ligado");
         this.setLigado(true);
     }
-     public void ligar(String nome){
-        System.out.println(nome + ": Ligado");
-        this.setLigado(true);
-    }
+
     public void desligar(){
         System.out.println("Desligado");
-        this.setLigado(false);
-    }
-    public void desligar(String nome){
-        System.out.println(nome + ": Desligado");
         this.setLigado(false);
     }
     

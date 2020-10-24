@@ -20,21 +20,23 @@ public class UsaFerroDePassar {
         ferroDePassar.setPotencia("3000w");
         ferroDePassar.setMarca("BlackDecker");
         ferroDePassar.setModelo("BK234");
-        ferroDePassar.setTermostato("5");
+        ferroDePassar.setTemperatura("5");
        
         System.out.println("Tensao........: " + ferroDePassar.getTensao());
         System.out.println("Cor...........: " + ferroDePassar.getCor());
         System.out.println("Potencia......: " + ferroDePassar.getPotencia());
         System.out.println("Marca.........: " + ferroDePassar.getMarca());
         System.out.println("Modelo........: " + ferroDePassar.getModelo());
-        System.out.println("Termostato....: " + ferroDePassar.getTermostato());
+        System.out.println("Temperatura...: " + ferroDePassar.getTemperatura());
         
-        System.out.println("Usando o Metodo 'Ligar('Ferro de Passar')' (Com parmetro): ");
-        ferroDePassar.ligar("Ferro de Passar");
+        System.out.println("Usando o Metodo 'Ligar()':");
+        ferroDePassar.ligar();
         
-        System.out.println("Usando o Metodo Desligar(): (Sem Parametro): ");
+        System.out.println("Usando o Metodo Desligar():");
         ferroDePassar.desligar();
-     
+        
+        System.out.println("Usando o Metodo ajustarTemeratura(\"10\"): ");
+        ferroDePassar.ajustaTemperatura("10");
     }
     
 }
