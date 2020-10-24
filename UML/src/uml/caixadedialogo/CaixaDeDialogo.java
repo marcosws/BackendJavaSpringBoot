@@ -23,7 +23,7 @@ public class CaixaDeDialogo {
     String titulo;
     
     public void abrir(){
-        JOptionPane.showConfirmDialog(null,this.getTexto(), this.getTitulo(), JOptionPane.YES_OPTION);
+        JOptionPane.showConfirmDialog(null,this.getTexto(), this.getTitulo(), JOptionPane.OK_OPTION);
     }
 
     public String getTexto() {
