@@ -55,9 +55,10 @@ public class PrincipalMDI extends JFrame {
         JMenuItem sobreMI= new JMenuItem("Sobre");
         JMenuItem sairMI= new JMenuItem("Sair");
        
-        cadastroMenu.add(produtoMI);
-        cadastroMenu.add(marcaMI);
         cadastroMenu.add(departamentosMI);
+        cadastroMenu.add(marcaMI);
+        cadastroMenu.addSeparator();
+        cadastroMenu.add(produtoMI);
 
         operacaoMenu.add(aquisicaoMI);
         operacaoMenu.add(saidaMI);
@@ -81,7 +82,7 @@ public class PrincipalMDI extends JFrame {
         sobreMI.addActionListener((ActionEvent ev) -> {
                 // https://brunoagt.wordpress.com/2011/03/28/javax-swing-joptionpane-conhecendo-e-utilizando-a-classe-joptionpane/
             int option = JOptionPane.INFORMATION_MESSAGE + JOptionPane.OK_OPTION;
-            JOptionPane.showMessageDialog(null, "Sistema de Controle de Suprimentos - Versão: 1.0", "Sobre", option);
+            JOptionPane.showMessageDialog(null, "Sistema de Controle de Suprimentos\nVersão: 1.0\n2020", "Sobre", option);
         });
         sairMI.addActionListener((ActionEvent ev) -> {
             System.exit(0);

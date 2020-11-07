@@ -8,6 +8,7 @@ package br.senai.sp.view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Frame;
+import javax.swing.JFrame;
 
 /**
  *
@@ -27,10 +28,11 @@ public class ExecutaSistema {
                 principalMdi.setMinimumSize(new Dimension(500, 500));
                 principalMdi.pack();
                 principalMdi.setExtendedState(Frame.MAXIMIZED_BOTH);
+                principalMdi.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 principalMdi.setVisible(true);
                 Dimension dimension = principalMdi.getSize();
                 PrincipalSize.setHeight(dimension.getHeight());
-                PrincipalSize.setWidth(dimension.getWidth());
+                PrincipalSize.setWidth(dimension.getWidth()); 
                 
             });
 
