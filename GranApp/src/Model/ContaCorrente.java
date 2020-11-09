@@ -12,6 +12,19 @@ public class ContaCorrente extends Banco{
     
     private double limite;
 
+    public ContaCorrente(String nome){
+        super(nome);
+    }
+    
+    public ContaCorrente(String nome, String agencia, int numero){
+        super(nome, agencia, numero);
+    }
+    
+    public ContaCorrente(String nome, String agencia, int numero, double limite){
+        super(nome, agencia, numero);
+        this.setLimite(limite);
+    }
+    
     public double getLimite() {
         return limite;
     }

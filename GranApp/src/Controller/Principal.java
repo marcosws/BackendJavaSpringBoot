@@ -22,11 +22,11 @@ public class Principal {
     // psvm [tab] - sout [tab]
     public static void main(String[] args){
         
-        ContaCorrente obj_cc = new ContaCorrente();
+        ContaCorrente obj_cc = new ContaCorrente("lety");
         obj_cc.setNumero(1);
         System.out.println("Numero: " + obj_cc.getNumero());
         
-        Poupanca obj_cpp = new Poupanca();
+        Poupanca obj_cpp = new Poupanca("tania");
         
         obj_cpp.setAniversario(38);
         System.out.println("Aniversário: " + obj_cpp.getAniversario());

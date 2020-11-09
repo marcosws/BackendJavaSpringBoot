@@ -12,6 +12,20 @@ public class Poupanca extends Banco{
     
     private int aniversario;
 
+    public Poupanca(String nome){
+        super(nome);
+    }
+    
+    public Poupanca(String nome, String agencia, int numero){
+        super(nome, agencia, numero);
+    }
+    
+    public Poupanca(String nome, String agencia, int numero, int aniversario){
+        super(nome, agencia, numero);
+        this.setAniversario(aniversario);
+    }
+    
+    
     public int getAniversario() {
         return aniversario;
     }

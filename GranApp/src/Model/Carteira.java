@@ -10,6 +10,11 @@ package Model;
  */
 public class Carteira extends Conta{
 
+    public Carteira(String nome){
+        super(nome);
+    }
+    
+    
     @Override
     public boolean sacar(double valor) {
         if((valor > 0) && (valor <= this.saldo)){

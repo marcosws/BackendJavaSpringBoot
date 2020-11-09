@@ -14,6 +14,11 @@ public abstract class Conta {
     private String nome;
     protected double saldo;
     
+    public Conta(String nome){
+        this.setNome(nome);
+    }
+    
+    
     // métodos get e set
     public String getNome() {
         return nome;
