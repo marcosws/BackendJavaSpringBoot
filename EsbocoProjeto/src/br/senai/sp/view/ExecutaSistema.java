@@ -16,26 +16,25 @@ import javax.swing.JFrame;
  */
 public class ExecutaSistema {
     
-    	public static void main(String[] args) {
+    public static void main(String[] args) {
 		
-            java.awt.EventQueue.invokeLater(() -> {
+        java.awt.EventQueue.invokeLater(() -> {
                 
-                PrincipalMDI principalMdi = new PrincipalMDI();
-                principalMdi.setTitle("Sistema de Controle de Suprimentos - Versão: 1.0");
-                principalMdi.setJMenuBar(principalMdi.getMenuSistema());
-                principalMdi.getContentPane().add(principalMdi.getStatusBar(), java.awt.BorderLayout.SOUTH);
-                principalMdi.add(principalMdi.getjDesktopPane(), BorderLayout.CENTER);
-                principalMdi.setMinimumSize(new Dimension(500, 500));
-                principalMdi.pack();
-                principalMdi.setExtendedState(Frame.MAXIMIZED_BOTH);
-                principalMdi.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                principalMdi.setVisible(true);
-                Dimension dimension = principalMdi.getSize();
-                PrincipalSize.setHeight(dimension.getHeight());
-                PrincipalSize.setWidth(dimension.getWidth()); 
+            PrincipalMDI principalMdi = new PrincipalMDI();
+            principalMdi.setTitle("Sistema de Controle de Suprimentos - Versão: 1.0");
+            principalMdi.setJMenuBar(principalMdi.getMenuSistema());
+            principalMdi.getContentPane().add(principalMdi.getStatusBar(), java.awt.BorderLayout.SOUTH);
+            principalMdi.add(principalMdi.getjDesktopPane(), BorderLayout.CENTER);
+            principalMdi.setMinimumSize(new Dimension(500, 500));
+            principalMdi.pack();
+            principalMdi.setExtendedState(Frame.MAXIMIZED_BOTH);
+            principalMdi.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            principalMdi.setVisible(true);
+            Dimension dimension = principalMdi.getSize();
+            PrincipalSize.setHeight(dimension.getHeight());
+            PrincipalSize.setWidth(dimension.getWidth()); 
                 
-            });
-
-	}
+        });
+    }
     
 }
