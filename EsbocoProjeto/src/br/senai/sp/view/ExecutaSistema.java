@@ -11,7 +11,6 @@ import java.awt.Frame;
 import javax.swing.JFrame;
 
 /**
- *
  * @author Marcos
  */
 public class ExecutaSistema {

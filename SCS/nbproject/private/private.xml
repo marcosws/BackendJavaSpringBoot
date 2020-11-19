@@ -2,6 +2,18 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Estudos/JAVA/senai/BackendJavaSpringBoot/SCS/src/br/senai/sp/view/DepartamentoChild.java</file>
+            <file>file:/C:/Estudos/JAVA/senai/BackendJavaSpringBoot/SCS/src/br/senai/sp/view/PrincipalExec.java</file>
+            <file>file:/C:/Estudos/JAVA/senai/BackendJavaSpringBoot/SCS/src/br/senai/sp/controller/ControllerProduto.java</file>
+            <file>file:/C:/Estudos/JAVA/senai/BackendJavaSpringBoot/SCS/src/br/senai/sp/view/MarcaChild.java</file>
+            <file>file:/C:/Estudos/JAVA/senai/BackendJavaSpringBoot/SCS/src/br/senai/sp/model/dao/MarcaDao.java</file>
+            <file>file:/C:/Estudos/JAVA/senai/BackendJavaSpringBoot/SCS/src/br/senai/sp/controller/ControllerDepartamento.java</file>
+            <file>file:/C:/Estudos/JAVA/senai/BackendJavaSpringBoot/SCS/src/br/senai/sp/controller/ControllerMarca.java</file>
+            <file>file:/C:/Estudos/JAVA/senai/BackendJavaSpringBoot/SCS/src/br/senai/sp/model/dao/ProdutoDao.java</file>
+            <file>file:/C:/Estudos/JAVA/senai/BackendJavaSpringBoot/SCS/src/br/senai/sp/view/ProdutoChild.java</file>
+            <file>file:/C:/Estudos/JAVA/senai/BackendJavaSpringBoot/SCS/src/br/senai/sp/view/PrincipalMDI.java</file>
+            <file>file:/C:/Estudos/JAVA/senai/BackendJavaSpringBoot/SCS/src/br/senai/sp/model/entity/Produto.java</file>
+        </group>
     </open-files>
 </project-private>
