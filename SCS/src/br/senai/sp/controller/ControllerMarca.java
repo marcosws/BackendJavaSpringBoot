@@ -56,9 +56,9 @@ public class ControllerMarca implements IController{
         MarcaDao marcaDao = new MarcaDao();
         List<Marca> marcas = marcaDao.consultar();
         marcaChild.limpaTabela();
-        for(Marca m: marcas){
+        marcas.forEach((m) -> {
             marcaChild.getModel().addRow(new Object[]{m.getId(), m.getNome(),m.getEmpresa()});
-        }
+        });
 
     }
     

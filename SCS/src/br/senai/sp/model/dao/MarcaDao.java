@@ -18,13 +18,11 @@ import java.util.List;
  */
 public class MarcaDao {
     
-    private final Connection connection;
-    public MarcaDao(){
-	this.connection = new Conexao().getConnection();
-    }
-    
+    private Connection connection;
+
     public void inserir(Marca marca){
         
+        this.connection = new Conexao().getConnection();
         String sql = "INSERT INTO MARCA (NOME, EMPRESA) VALUES (?,?)";
         try{
             PreparedStatement stmt = connection.prepareStatement(sql);	
@@ -32,6 +30,7 @@ public class MarcaDao {
             stmt.setString(2, marca.getEmpresa());
             stmt.execute();
             stmt.close();	
+            this.connection.close();
 	}
         catch(SQLException e){
             throw new RuntimeException(e);
@@ -40,8 +39,8 @@ public class MarcaDao {
     }
     public void alterar(Marca marca){
         
+        this.connection = new Conexao().getConnection();
         String sql = "UPDATE MARCA SET NOME=?, EMPRESA=? WHERE ID=?;";
-        
         try{
             PreparedStatement stmt = connection.prepareStatement(sql);	
             stmt.setString(1, marca.getNome());
@@ -49,6 +48,7 @@ public class MarcaDao {
             stmt.setLong(3, marca.getId());
             stmt.execute();
             stmt.close();	
+            this.connection.close();
 	}
         catch(SQLException e){
             throw new RuntimeException(e);
@@ -57,11 +57,13 @@ public class MarcaDao {
     }
     public void excluir(Marca marca){
         
+        this.connection = new Conexao().getConnection();
         try{
             PreparedStatement stmt = connection.prepareStatement("DELETE FROM MARCA WHERE ID=?");
             stmt.setLong(1, marca.getId());
             stmt.execute();
             stmt.close();
+            this.connection.close();
         }
 	catch(SQLException e){
             throw new RuntimeException(e);
@@ -70,17 +72,18 @@ public class MarcaDao {
     }
     public Marca consultar(long id){
         
+        this.connection = new Conexao().getConnection();
         Marca marca = new Marca();
-        
         try{
-            PreparedStatement ptmt = this.connection.prepareStatement("SELECT * FROM MARCA WHERE ID = ?"); 
-            ptmt.setString(1,Long.toString(id));
+            PreparedStatement ptmt = this.connection.prepareStatement("SELECT * FROM MARCA WHERE ID=?"); 
+            ptmt.setLong(1,id);
             ResultSet resultSet = ptmt.executeQuery();
-                
-            resultSet.first();  
+            resultSet.next();
             marca.setId(resultSet.getLong("ID"));
             marca.setNome(resultSet.getString("NOME"));
             marca.setEmpresa(resultSet.getString("EMPRESA"));
+            resultSet.close();
+            this.connection.close();
             return marca;
         }
         catch(SQLException e){
@@ -90,6 +93,7 @@ public class MarcaDao {
     }
     public List<Marca> consultar(){
         
+        this.connection = new Conexao().getConnection();
         try{
             List<Marca> marcas = new ArrayList<Marca>();
             PreparedStatement ptmt = this.connection.prepareStatement("SELECT * FROM MARCA;");
@@ -104,7 +108,7 @@ public class MarcaDao {
                 marcas.add(marca);
                     
             }
-            
+            this.connection.close();
             return marcas;
         }
         catch(SQLException e){

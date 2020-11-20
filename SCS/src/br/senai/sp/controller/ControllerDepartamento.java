@@ -53,9 +53,9 @@ public class ControllerDepartamento implements IController{
         DepartamentoDao departamentoDao = new DepartamentoDao();
         List<Departamento> departamentos = departamentoDao.consultar();
         departamentoChild.limpaTabela();
-        for(Departamento d: departamentos){
+        departamentos.forEach((d) -> {
             departamentoChild.getModel().addRow(new Object[]{d.getId(), d.getNome()});
-        }
+        });
        
     }
     

@@ -10,6 +10,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -29,6 +30,10 @@ public class ProdutoChild implements ActionListener{
     private JTextField txtId;
     private JTextField txtNome;
     private JTextField txtEmpresa;
+    private JComboBox cbMarca;
+    private JComboBox cbDepartamento;
+    
+    
     private JTable tabelaJt;
     private String operacao;
     private DefaultTableModel model;
@@ -65,14 +70,6 @@ public class ProdutoChild implements ActionListener{
     public void setTxtNome(JTextField txtNome) {
         this.txtNome = txtNome;
     }
-
-    public JTextField getTxtEmpresa() {
-        return txtEmpresa;
-    }
-
-    public void setTxtEmpresa(JTextField txtEmpresa) {
-        this.txtEmpresa = txtEmpresa;
-    }
     
     public JInternalFrame getFrame() {
         return frame;
@@ -85,6 +82,24 @@ public class ProdutoChild implements ActionListener{
     public void setTabelaJt(JTable tabelaJt) {
         this.tabelaJt = tabelaJt;
     }
+
+    public JComboBox getCbMarca() {
+        return cbMarca;
+    }
+
+    public void setCbMarca(JComboBox cbMarca) {
+        this.cbMarca = cbMarca;
+    }
+
+    public JComboBox getCbDepartamento() {
+        return cbDepartamento;
+    }
+
+    public void setCbDepartamento(JComboBox cbDepartamento) {
+        this.cbDepartamento = cbDepartamento;
+    }
+    
+    
     
     public ProdutoChild(){
         
@@ -95,6 +110,9 @@ public class ProdutoChild implements ActionListener{
         txtNome = new JTextField();
         txtEmpresa = new JTextField();
         frame = new JInternalFrame("Produto", true, true, true, true);
+        
+        cbMarca = new JComboBox();
+        cbDepartamento = new JComboBox();
 
         botaoIncluir = new JButton("Incluir");
         botaoAlterar = new JButton("Alterar");
@@ -127,13 +145,17 @@ public class ProdutoChild implements ActionListener{
         lbNome.setBounds(20, 120, 500, 20);
         txtNome.setBounds(20, 140, 500, 20);
         
-        JLabel lbEmpresa = new JLabel("Empresa:");
-        lbEmpresa.setBounds(20, 160, 500, 20);
-        txtEmpresa.setBounds(20, 180 ,500, 20);
+        JLabel lbMarca = new JLabel("Marca:");
+        lbMarca.setBounds(20, 160, 500, 20);
+        cbMarca.setBounds(20, 180 ,500, 20);
         
+        JLabel lbDepartamento = new JLabel("Departamento:");
+        lbDepartamento.setBounds(20, 200, 500, 20);
+        cbDepartamento.setBounds(20, 220, 500, 20);
+
         operacaoNome = new JLabel("Selecione a Operação");
         operacaoNome.setFont(new Font("Arial",Font.BOLD,14));
-        operacaoNome.setBounds(20, 220, 500, 20);
+        operacaoNome.setBounds(140, 100, 500, 20);
         
         JLabel lbProdutos = new JLabel("Produtos:");
         lbProdutos.setBounds(20, 260, 500, 20);
@@ -159,7 +181,8 @@ public class ProdutoChild implements ActionListener{
                 int row = tabelaJt.getSelectedRow();
                 txtId.setText(tabelaJt.getModel().getValueAt(row, 0).toString());
                 txtNome.setText(tabelaJt.getModel().getValueAt(row, 1).toString());
-                txtEmpresa.setText(tabelaJt.getModel().getValueAt(row, 2).toString());
+                cbMarca.getModel().setSelectedItem(tabelaJt.getModel().getValueAt(row, 2).toString());
+                cbDepartamento.getModel().setSelectedItem(tabelaJt.getModel().getValueAt(row, 4).toString());
             }
         });
         
@@ -169,7 +192,10 @@ public class ProdutoChild implements ActionListener{
         panel.add(titulo);
         panel.add(lbId);
         panel.add(lbNome);
-        panel.add(lbEmpresa);
+        panel.add(lbMarca);
+        panel.add(cbMarca);
+        panel.add(lbDepartamento);
+        panel.add(cbDepartamento);
         panel.add(txtId);
         panel.add(txtNome);
         panel.add(txtEmpresa);
@@ -190,7 +216,10 @@ public class ProdutoChild implements ActionListener{
         frame.setVisible(true);
         
     }
-
+    public void inicializa(){
+        ControllerProduto controllerProduto = new ControllerProduto();
+        controllerProduto.carregarCombos(this);
+    }
     public void adicionaActionListener(){
         
         botaoIncluir.addActionListener(this);
@@ -206,7 +235,7 @@ public class ProdutoChild implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent evento) {
         
-               if(evento.getSource().equals(botaoIncluir)){
+        if(evento.getSource().equals(botaoIncluir)){
             this.operacaoBotoesHabilita(false);
             operacao = Operacao.INCLUIR.getNomeOperacao();
             operacaoNome.setText("Incluir");

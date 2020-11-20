@@ -19,21 +19,20 @@ import java.util.List;
  */
 public class ProdutoDao {
     
-    private final Connection connection;
-    public ProdutoDao(){
-	this.connection = new Conexao().getConnection();
-    }
-    
+    private Connection connection;
+  
     public void inserir(Produto produto){
         
+        this.connection = new Conexao().getConnection();
         String sql = "INSERT INTO PRODUTO (NOME, ID_MARCA, ID_DEPT) VALUES (?,?,?)";
         try{
             PreparedStatement stmt = connection.prepareStatement(sql);	
             stmt.setString(1, produto.getNome());
             stmt.setLong(2, produto.getIdMarca());
-            stmt.setLong(2, produto.getIdDept());
+            stmt.setLong(3, produto.getIdDept());
             stmt.execute();
             stmt.close();	
+            this.connection.close();
 	}
         catch(SQLException e){
             throw new RuntimeException(e);
@@ -42,6 +41,7 @@ public class ProdutoDao {
     }
     public void alterar(Produto produto){
         
+        this.connection = new Conexao().getConnection();
         String sql = "UPDATE PRODUTO SET NOME=?, ID_MARCA=?, ID_DEPT=? WHERE ID=?;";
         try{
             PreparedStatement stmt = connection.prepareStatement(sql);	
@@ -50,7 +50,8 @@ public class ProdutoDao {
             stmt.setLong(3, produto.getIdDept());
             stmt.setLong(4, produto.getId());
             stmt.execute();
-            stmt.close();	
+            stmt.close();
+            this.connection.close();
 	}
         catch(SQLException e){
             throw new RuntimeException(e);
@@ -58,12 +59,13 @@ public class ProdutoDao {
         
     }
     public void excluir(Produto produto){
-        
+        this.connection = new Conexao().getConnection();
         try{
             PreparedStatement stmt = connection.prepareStatement("DELETE FROM PRODUTO WHERE ID=?");
             stmt.setLong(1, produto.getId());
             stmt.execute();
             stmt.close();
+            this.connection.close();
         }
 	catch(SQLException e){
             throw new RuntimeException(e);
@@ -71,18 +73,19 @@ public class ProdutoDao {
     }
     public Produto consultar(long id){
         
+        this.connection = new Conexao().getConnection();
         Produto produto = new Produto();
         try{
             PreparedStatement ptmt = this.connection.prepareStatement("SELECT * FROM PRODUTO WHERE ID = ?"); 
             ptmt.setString(1,Long.toString(id));
             ResultSet resultSet = ptmt.executeQuery();
                 
-            resultSet.first();  
+            resultSet.next();  
             produto.setId(resultSet.getLong("ID"));
             produto.setNome(resultSet.getString("NOME"));
             produto.setIdMarca(resultSet.getLong("ID_MARCA"));
             produto.setIdDept(resultSet.getLong("ID_DEPT"));
-            
+            this.connection.close();
             return produto;
         }
         catch(SQLException e){
@@ -91,6 +94,7 @@ public class ProdutoDao {
     }
     public List<Produto> consultar(){
         
+        this.connection = new Conexao().getConnection();
          try{
             List<Produto> produtos = new ArrayList<Produto>();
             PreparedStatement ptmt = this.connection.prepareStatement("SELECT * FROM PRODUTO;");
@@ -106,6 +110,7 @@ public class ProdutoDao {
                 produtos.add(produto);
                     
             }
+            this.connection.close();
             return produtos;
         }
         catch(SQLException e){

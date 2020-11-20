@@ -18,44 +18,48 @@ import java.util.List;
  */
 public class DepartamentoDao {
     
-    private final Connection connection;
-    public DepartamentoDao(){
-	this.connection = new Conexao().getConnection();
-    }
-    
+    private Connection connection;
+
     public void inserir(Departamento departamento){
         
+        this.connection = new Conexao().getConnection();
         String sql = "INSERT INTO DEPARTAMENTO (NOME) VALUES (?)";
         try{
             PreparedStatement stmt = connection.prepareStatement(sql);	
             stmt.setString(1, departamento.getNome());
             stmt.execute();
-            stmt.close();	
+            stmt.close();
+            this.connection.close();
 	}
         catch(SQLException e){
             throw new RuntimeException(e);
 	}
     }
     public void alterar(Departamento departamento){
-        String sql = "UPDATE DEPARTAMENTO SET NOME=? WHERE ID=?;";
         
+        this.connection = new Conexao().getConnection();
+        String sql = "UPDATE DEPARTAMENTO SET NOME=? WHERE ID=?;";
         try{
             PreparedStatement stmt = connection.prepareStatement(sql);	
             stmt.setString(1, departamento.getNome());
             stmt.setLong(2, departamento.getId());
             stmt.execute();
-            stmt.close();	
+            stmt.close();
+            this.connection.close();
 	}
         catch(SQLException e){
             throw new RuntimeException(e);
 	}
     }
     public void excluir(Departamento departamento){
+        
+        this.connection = new Conexao().getConnection();
         try{
             PreparedStatement stmt = connection.prepareStatement("DELETE FROM DEPARTAMENTO WHERE ID=?");
             stmt.setLong(1, departamento.getId());
             stmt.execute();
             stmt.close();
+            this.connection.close();
         }
 	catch(SQLException e){
             throw new RuntimeException(e);
@@ -63,15 +67,17 @@ public class DepartamentoDao {
     }
     public Departamento consultar(long id){
         
+        this.connection = new Conexao().getConnection();
         Departamento departamento = new Departamento();
         try{
             PreparedStatement ptmt = this.connection.prepareStatement("SELECT * FROM DEPARTAMENTO WHERE ID = ?"); 
-            ptmt.setString(1,Long.toString(id));
+            ptmt.setLong(1,id);
             ResultSet resultSet = ptmt.executeQuery();
-                
-            resultSet.first();  
+            
+            resultSet.next();  
             departamento.setId(resultSet.getLong("ID"));
             departamento.setNome(resultSet.getString("NOME"));
+            this.connection.close();
             return departamento;
         }
         catch(SQLException e){
@@ -80,6 +86,7 @@ public class DepartamentoDao {
     }
     public List<Departamento> consultar(){
     
+        this.connection = new Conexao().getConnection();
         try{
             List<Departamento> departamentos = new ArrayList<Departamento>();
             PreparedStatement ptmt = this.connection.prepareStatement("SELECT * FROM DEPARTAMENTO;");
@@ -93,6 +100,7 @@ public class DepartamentoDao {
                 departamentos.add(departamento);
                     
             }
+            this.connection.close();
             return departamentos;
         }
         catch(SQLException e){

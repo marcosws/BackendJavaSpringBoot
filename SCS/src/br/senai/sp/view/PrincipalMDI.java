@@ -116,6 +116,7 @@ public class PrincipalMDI extends JFrame implements ActionListener {
         else if(evento.getSource().equals(produtoMenuItem)){
             ProdutoChild produtoChild = new ProdutoChild();
             produtoChild.adicionaActionListener();
+            produtoChild.inicializa();
             jDesktopPane.add(produtoChild.getFrame());
         }
         else if(evento.getSource().equals(sairMenuItem)){
