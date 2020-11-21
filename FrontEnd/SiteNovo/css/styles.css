@@ -1,0 +1,23 @@
+
+
+html{
+    background-image: url("../imagens/marcas.jpg");
+    background-repeat: repeat; 
+    align-items: center;
+    position: absolute;
+}
+#head{
+    background-image: url("../imagens/dollynho.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(124, 115, 115, 0.5);
+    width: 900px;
+    border: 1px solid rgb(108, 243, 54);
+    border-radius: 3em;
+}
+h1{
+    /*  color:blue; */
+    color: #f3c631;
+    /* background-color: chocolate; */
+    font-size: 72px;
+}
