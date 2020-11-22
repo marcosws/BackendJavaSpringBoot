@@ -16,6 +16,8 @@ import java.util.List;
 public class Teste {
     
     public static void main(String[] args) {
+        
+        
         System.out.println("Dir: " + System.getProperty("user.dir"));
         MarcaDao marcaDao = new MarcaDao();
         int linha = 0;
