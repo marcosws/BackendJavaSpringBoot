@@ -95,13 +95,14 @@ public class ProdutoDao {
     public List<Produto> consultar(){
         
         this.connection = new Conexao().getConnection();
-         try{
+        try{
             List<Produto> produtos = new ArrayList<Produto>();
             PreparedStatement ptmt = this.connection.prepareStatement("SELECT * FROM PRODUTO;");
             ResultSet resultSet = ptmt.executeQuery();
-                
+            
+            
             while(resultSet.next()){
-                    
+            
                 Produto produto = new Produto();
                 produto.setId(resultSet.getLong("ID"));
                 produto.setNome(resultSet.getString("NOME"));

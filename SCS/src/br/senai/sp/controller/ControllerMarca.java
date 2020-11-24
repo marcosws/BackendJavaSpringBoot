@@ -7,7 +7,7 @@ package br.senai.sp.controller;
 
 import br.senai.sp.model.dao.MarcaDao;
 import br.senai.sp.model.entity.Marca;
-import br.senai.sp.view.MarcaChild;
+import br.senai.sp.view.chid.MarcaChild;
 import java.util.List;
 import javax.swing.JTable;
 
@@ -55,9 +55,9 @@ public class ControllerMarca implements IController{
         marcaChild = (MarcaChild) view;
         MarcaDao marcaDao = new MarcaDao();
         List<Marca> marcas = marcaDao.consultar();
-        marcaChild.limpaTabela();
+        marcaChild.getGridView().clearGrid();
         marcas.forEach((m) -> {
-            marcaChild.getModel().addRow(new Object[]{m.getId(), m.getNome(),m.getEmpresa()});
+            marcaChild.getGridView().getModel().addRow(new Object[]{m.getId(), m.getNome(),m.getEmpresa()});
         });
 
     }

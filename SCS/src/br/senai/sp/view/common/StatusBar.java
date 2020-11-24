@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.senai.sp.view;
+package br.senai.sp.view.common;
 
 import java.awt.Dimension;
 import javax.swing.JLabel;
@@ -12,7 +12,7 @@ import javax.swing.JLabel;
  *
  * @author Marcos
  */
-class StatusBar extends JLabel{
+public class StatusBar extends JLabel{
     
     private String mensagem;
 
@@ -27,7 +27,7 @@ class StatusBar extends JLabel{
     public StatusBar() {
         super();
         super.setPreferredSize(new Dimension(100, 18));
-        this.textoMensagem("SGS - Sistema de Gerenciamento de Suprimentos");
+        this.textoMensagem(SgsConstantes.NOME_SISTEMA);
     }
     
     private void textoMensagem(String msg){

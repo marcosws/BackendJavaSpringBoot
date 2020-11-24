@@ -5,6 +5,9 @@
  */
 package br.senai.sp.view;
 
+import br.senai.sp.view.common.PrincipalMDI;
+import br.senai.sp.view.common.PrincipalSize;
+import br.senai.sp.view.common.SgsConstantes;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Frame;
@@ -20,7 +23,7 @@ public interface PrincipalExec {
         java.awt.EventQueue.invokeLater(() -> {
                 
             PrincipalMDI principalMdi = new PrincipalMDI();
-            principalMdi.setTitle("SGS - Sistema de Gerenciamento de Suprimentos");
+            principalMdi.setTitle(SgsConstantes.NOME_SISTEMA);
             principalMdi.adicionaActionListener();
             principalMdi.setJMenuBar(principalMdi.getMenuSistema());
             principalMdi.getContentPane().add(principalMdi.getStatusBar(), java.awt.BorderLayout.SOUTH);

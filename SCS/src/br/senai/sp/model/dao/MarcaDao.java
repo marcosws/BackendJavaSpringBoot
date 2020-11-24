@@ -98,9 +98,9 @@ public class MarcaDao {
             List<Marca> marcas = new ArrayList<Marca>();
             PreparedStatement ptmt = this.connection.prepareStatement("SELECT * FROM MARCA;");
             ResultSet resultSet = ptmt.executeQuery();
-                
+            
             while(resultSet.next()){
-                    
+                
                 Marca marca = new Marca();
                 marca.setId(resultSet.getLong("ID"));
                 marca.setNome(resultSet.getString("NOME"));
@@ -112,7 +112,6 @@ public class MarcaDao {
             return marcas;
         }
         catch(SQLException e){
-            System.out.println("deu erro aqui");
             throw new RuntimeException(e);
         }
     }

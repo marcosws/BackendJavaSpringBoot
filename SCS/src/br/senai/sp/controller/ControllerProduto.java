@@ -11,7 +11,7 @@ import br.senai.sp.model.dao.ProdutoDao;
 import br.senai.sp.model.entity.Departamento;
 import br.senai.sp.model.entity.Marca;
 import br.senai.sp.model.entity.Produto;
-import br.senai.sp.view.ProdutoChild;
+import br.senai.sp.view.chid.ProdutoChild;
 import java.util.List;
 
 /**
@@ -71,9 +71,9 @@ public class ControllerProduto implements IController{
         MarcaDao marcaDao = new MarcaDao();
         DepartamentoDao departamentoDao = new DepartamentoDao();
         List<Produto> produtos = produtoDao.consultar();
-        produtoChild.limpaTabela();
+        produtoChild.getGridView().clearGrid();
         produtos.forEach((p) -> {
-            produtoChild.getModel().addRow(new Object[]{
+            produtoChild.getGridView().getModel().addRow(new Object[]{
                 p.getId(), 
                 p.getNome(),
                 marcaDao.consultar(p.getIdMarca()).getNome(),

@@ -3,12 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.senai.sp.view;
+package br.senai.sp.view.chid;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
  * @author Marcos
  */
-public class SaidaChild {
-    
+public class CompraChild{
+
+    public CompraChild(){
+        
+    }
+  
 }

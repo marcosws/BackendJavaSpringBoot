@@ -6,6 +6,8 @@
             <file>file:/C:/Estudos/JAVA/senai/BackendJavaSpringBoot/SCS/src/br/senai/sp/controller/ControllerProduto.java</file>
             <file>file:/C:/Estudos/JAVA/senai/BackendJavaSpringBoot/SCS/src/br/senai/sp/controller/ControllerMarca.java</file>
             <file>file:/C:/Estudos/JAVA/senai/BackendJavaSpringBoot/SCS/src/br/senai/sp/view/ProdutoChild.java</file>
+            <file>file:/C:/Estudos/JAVA/senai/BackendJavaSpringBoot/SCS/src/br/senai/sp/view/StatusBar.java</file>
+            <file>file:/C:/Estudos/JAVA/senai/BackendJavaSpringBoot/SCS/src/br/senai/sp/view/Teste.java</file>
             <file>file:/C:/Estudos/JAVA/senai/BackendJavaSpringBoot/SCS/src/br/senai/sp/view/DepartamentoChild.java</file>
             <file>file:/C:/Estudos/JAVA/senai/BackendJavaSpringBoot/SCS/src/br/senai/sp/view/SaidaChild.java</file>
             <file>file:/C:/Estudos/JAVA/senai/BackendJavaSpringBoot/SCS/src/br/senai/sp/view/PrincipalExec.java</file>
@@ -13,6 +15,7 @@
             <file>file:/C:/Estudos/JAVA/senai/BackendJavaSpringBoot/SCS/src/br/senai/sp/model/dao/Conexao.java</file>
             <file>file:/C:/Estudos/JAVA/senai/BackendJavaSpringBoot/SCS/src/br/senai/sp/model/dao/MarcaDao.java</file>
             <file>file:/C:/Estudos/JAVA/senai/BackendJavaSpringBoot/SCS/src/br/senai/sp/model/dao/DepartamentoDao.java</file>
+            <file>file:/C:/Estudos/JAVA/senai/BackendJavaSpringBoot/SCS/src/br/senai/sp/controller/IController.java</file>
             <file>file:/C:/Estudos/JAVA/senai/BackendJavaSpringBoot/SCS/src/br/senai/sp/controller/ControllerDepartamento.java</file>
             <file>file:/C:/Estudos/JAVA/senai/BackendJavaSpringBoot/SCS/src/br/senai/sp/model/dao/ProdutoDao.java</file>
             <file>file:/C:/Estudos/JAVA/senai/BackendJavaSpringBoot/SCS/src/br/senai/sp/view/PrincipalMDI.java</file>

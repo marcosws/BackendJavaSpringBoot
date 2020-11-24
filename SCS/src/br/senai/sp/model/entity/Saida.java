@@ -5,6 +5,7 @@
  */
 package br.senai.sp.model.entity;
 
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -14,8 +15,10 @@ import java.util.Date;
 public class Saida {
     
     private long id;
-    private Date data;
+    private Calendar data;
     private long idCompra;
+    private long idEstoque;
+    private long idProduto;
 
     public long getId() {
         return id;
@@ -25,14 +28,6 @@ public class Saida {
         this.id = id;
     }
 
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
-    }
-
     public long getIdCompra() {
         return idCompra;
     }
@@ -40,7 +35,30 @@ public class Saida {
     public void setIdCompra(long idCompra) {
         this.idCompra = idCompra;
     }
+
+    public long getIdEstoque() {
+        return idEstoque;
+    }
+
+    public void setIdEstoque(long idEstoque) {
+        this.idEstoque = idEstoque;
+    }
+
+    public long getIdProduto() {
+        return idProduto;
+    }
+
+    public void setIdProduto(long idProduto) {
+        this.idProduto = idProduto;
+    }
     
+    public Calendar getData() {
+        return data;
+    }
+
+    public void setData(Calendar data) {
+        this.data = data;
+    }
     
     
     

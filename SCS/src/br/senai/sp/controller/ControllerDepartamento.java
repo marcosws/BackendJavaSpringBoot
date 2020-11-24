@@ -7,7 +7,7 @@ package br.senai.sp.controller;
 
 import br.senai.sp.model.dao.DepartamentoDao;
 import br.senai.sp.model.entity.Departamento;
-import br.senai.sp.view.DepartamentoChild;
+import br.senai.sp.view.chid.DepartamentoChild;
 import java.util.List;
 
 /**
@@ -52,9 +52,9 @@ public class ControllerDepartamento implements IController{
         departamentoChild = (DepartamentoChild) view;
         DepartamentoDao departamentoDao = new DepartamentoDao();
         List<Departamento> departamentos = departamentoDao.consultar();
-        departamentoChild.limpaTabela();
+        departamentoChild.getGridView().clearGrid();
         departamentos.forEach((d) -> {
-            departamentoChild.getModel().addRow(new Object[]{d.getId(), d.getNome()});
+            departamentoChild.getGridView().getModel().addRow(new Object[]{d.getId(), d.getNome()});
         });
        
     }

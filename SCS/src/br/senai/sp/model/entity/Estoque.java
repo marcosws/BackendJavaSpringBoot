@@ -13,7 +13,6 @@ public class Estoque {
     
     private long id;
     private long quantidade;
-    private long idSaida;
 
     public long getId() {
         return id;

@@ -3,8 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.senai.sp.view;
+package br.senai.sp.view.common;
 
+import br.senai.sp.view.chid.DepartamentoChild;
+import br.senai.sp.view.chid.MarcaChild;
+import br.senai.sp.view.chid.SaidaChild;
+import br.senai.sp.view.chid.ProdutoChild;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JDesktopPane;
@@ -94,9 +98,14 @@ public class PrincipalMDI extends JFrame implements ActionListener {
     }
 
     public void adicionaActionListener() {
+        
        marcaMenuItem.addActionListener(this);
        departamentoMenuItem.addActionListener(this);
        produtoMenuItem.addActionListener(this);
+       
+       saidaMenuItem.addActionListener(this);
+       
+       
        sobreMenuItem.addActionListener(this);
        sairMenuItem.addActionListener(this);
     }
@@ -119,12 +128,19 @@ public class PrincipalMDI extends JFrame implements ActionListener {
             produtoChild.inicializa();
             jDesktopPane.add(produtoChild.getFrame());
         }
+        else if(evento.getSource().equals(saidaMenuItem)){
+         /*   
+            SaidaChild saidaChild = new SaidaChild();
+            saidaChild.adicionaActionListener();
+            jDesktopPane.add(saidaChild.getFrame());
+           */
+        }
         else if(evento.getSource().equals(sairMenuItem)){
             System.exit(0);
         }
         else if(evento.getSource().equals(sobreMenuItem)){
             int option = JOptionPane.INFORMATION_MESSAGE + JOptionPane.OK_OPTION;
-            JOptionPane.showMessageDialog(null, "SGS - Sistema de Gerenciamento de Suprimentos\nVersão: 1.0", "Sobre", option);
+            JOptionPane.showMessageDialog(null, SgsConstantes.NOME_SISTEMA +  "\nVersão: " + SgsConstantes.VERSAO, "Sobre", option);
         }
     }
    
