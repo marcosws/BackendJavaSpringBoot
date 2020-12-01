@@ -11,6 +11,7 @@ import br.senai.sp.model.dao.MarcaDao;
 import br.senai.sp.model.dao.ProdutoDao;
 import br.senai.sp.model.entity.Compra;
 import br.senai.sp.model.entity.Produto;
+import br.senai.sp.model.service.CommonService;
 import br.senai.sp.view.chid.CompraChild;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -70,6 +71,7 @@ public class ControllerCompra implements IController{
     public void consultar(Object view) {
        
         compraChild = (CompraChild) view;
+        CommonService commonService = new CommonService();
         CompraDao compraDao = new CompraDao();
         ProdutoDao produtoDao = new ProdutoDao();
         List<Compra> compras = compraDao.consultar();
@@ -77,7 +79,7 @@ public class ControllerCompra implements IController{
         compras.forEach((c) -> {
                 compraChild.getGridView().getModel().addRow(new Object[]{
                 c.getId(), 
-                this.getStringData(c.getData()),
+                commonService.getStringData(c.getData()),
                 c.getPreco(),
                 c.getQuantidade(),
                 c.getTotal(),
@@ -107,12 +109,8 @@ public class ControllerCompra implements IController{
     }
     private Long recuperaIdNaComboProduto(CompraChild compraChild){
         String strIdProduto = compraChild.getCbProduto().getModel().getSelectedItem().toString();
-        String[] arrProduto =  strIdProduto.split("|");
-        return Long.parseLong(arrProduto[0].replace(" ", ""));
-    }
-    public String getStringData(Calendar data){
-        SimpleDateFormat s = new SimpleDateFormat("dd/MM/yyyy"); 
-        return s.format(data.getTimeInMillis());
+        String[] arrProduto = strIdProduto.split(" | ");
+        return Long.parseLong(arrProduto[0]);
     }
     
 }

@@ -6,6 +6,7 @@
 package br.senai.sp.model.dao;
 
 import br.senai.sp.model.entity.Compra;
+import br.senai.sp.model.service.Mensagens;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -39,7 +40,8 @@ public class CompraDao {
             this.connection.close();
 	}
         catch(SQLException e){
-            throw new RuntimeException(e);
+            Mensagens mensagens = new Mensagens();
+            mensagens.apresentaMensagem(e);
 	}
         
     }
@@ -59,7 +61,8 @@ public class CompraDao {
             this.connection.close();
 	}
         catch(SQLException e){
-            throw new RuntimeException(e);
+            Mensagens mensagens = new Mensagens();
+            mensagens.apresentaMensagem(e);
 	}
         
     }
@@ -74,7 +77,8 @@ public class CompraDao {
             this.connection.close();
         }
 	catch(SQLException e){
-            throw new RuntimeException(e);
+            Mensagens mensagens = new Mensagens();
+            mensagens.apresentaMensagem(e);
 	}
         
     }
@@ -102,8 +106,10 @@ public class CompraDao {
             return compra;
         }
         catch(SQLException e){
-            throw new RuntimeException(e);
+            Mensagens mensagens = new Mensagens();
+            mensagens.apresentaMensagem(e);
         }
+        return null;
           
     }
     public List<Compra> consultar(){
@@ -132,8 +138,10 @@ public class CompraDao {
             return compras;
         }
         catch(SQLException e){
-            throw new RuntimeException(e);
+            Mensagens mensagens = new Mensagens();
+            mensagens.apresentaMensagem(e);
         }
+        return null;
         
     }
     

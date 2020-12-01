@@ -6,12 +6,14 @@
 package br.senai.sp.model.dao;
 
 import br.senai.sp.model.entity.Marca;
+import br.senai.sp.model.service.Mensagens;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  * @author Marcos
@@ -33,7 +35,8 @@ public class MarcaDao {
             this.connection.close();
 	}
         catch(SQLException e){
-            throw new RuntimeException(e);
+            Mensagens mensagens = new Mensagens();
+            mensagens.apresentaMensagem(e);
 	}
         
     }
@@ -51,7 +54,8 @@ public class MarcaDao {
             this.connection.close();
 	}
         catch(SQLException e){
-            throw new RuntimeException(e);
+            Mensagens mensagens = new Mensagens();
+            mensagens.apresentaMensagem(e);
 	}
         
     }
@@ -66,7 +70,8 @@ public class MarcaDao {
             this.connection.close();
         }
 	catch(SQLException e){
-            throw new RuntimeException(e);
+            Mensagens mensagens = new Mensagens();
+            mensagens.apresentaMensagem(e);
 	}
         
     }
@@ -87,9 +92,10 @@ public class MarcaDao {
             return marca;
         }
         catch(SQLException e){
-            throw new RuntimeException(e);
+            Mensagens mensagens = new Mensagens();
+            mensagens.apresentaMensagem(e);
         }
-
+        return null;
     }
     public List<Marca> consultar(){
         
@@ -112,8 +118,10 @@ public class MarcaDao {
             return marcas;
         }
         catch(SQLException e){
-            throw new RuntimeException(e);
+            Mensagens mensagens = new Mensagens();
+            mensagens.apresentaMensagem(e);
         }
+        return null;
     }
     
 }

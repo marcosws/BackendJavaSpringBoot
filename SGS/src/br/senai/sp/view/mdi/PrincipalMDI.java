@@ -3,13 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.senai.sp.view.common;
+package br.senai.sp.view.mdi;
 
 import br.senai.sp.view.chid.CompraChild;
 import br.senai.sp.view.chid.DepartamentoChild;
+import br.senai.sp.view.chid.EstoqueChild;
 import br.senai.sp.view.chid.MarcaChild;
 import br.senai.sp.view.chid.SaidaChild;
 import br.senai.sp.view.chid.ProdutoChild;
+import br.senai.sp.view.common.SgsConstantes;
+import br.senai.sp.view.common.StatusBar;
 import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -142,12 +145,19 @@ public class PrincipalMDI extends JFrame implements ActionListener {
        marcaMenuItem.addActionListener(this);
        departamentoMenuItem.addActionListener(this);
        produtoMenuItem.addActionListener(this);
+       
        compraMenuItem.addActionListener(this);
        saidaMenuItem.addActionListener(this);
+       
+       estoqueMenuItem.addActionListener(this);
+       
        informacoesMenuItem.addActionListener(this);
+       sairMenuItem.addActionListener(this);
+       
        ajudaMenuItem.addActionListener(this);
        sobreMenuItem.addActionListener(this);
-       sairMenuItem.addActionListener(this);
+       
+       
     }
     @Override
     public void actionPerformed(ActionEvent evento) {
@@ -176,7 +186,14 @@ public class PrincipalMDI extends JFrame implements ActionListener {
         else if(evento.getSource().equals(saidaMenuItem)){
             SaidaChild saidaChild = new SaidaChild();
             saidaChild.adicionaActionListener();
+            saidaChild.inicializa();
             jDesktopPane.add(saidaChild.getFrame());
+        }
+        else if(evento.getSource().equals(estoqueMenuItem)){
+            EstoqueChild estoqueChild = new EstoqueChild();
+            estoqueChild.adicionaActionListener();
+            estoqueChild.inicializa();
+            jDesktopPane.add(estoqueChild.getFrame());
         }
         else if(evento.getSource().equals(informacoesMenuItem)){
             int option = JOptionPane.INFORMATION_MESSAGE + JOptionPane.OK_OPTION;

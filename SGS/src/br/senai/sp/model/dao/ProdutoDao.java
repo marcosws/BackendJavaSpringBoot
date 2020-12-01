@@ -6,6 +6,7 @@
 package br.senai.sp.model.dao;
 
 import br.senai.sp.model.entity.Produto;
+import br.senai.sp.model.service.Mensagens;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -35,7 +36,8 @@ public class ProdutoDao {
             this.connection.close();
 	}
         catch(SQLException e){
-            throw new RuntimeException(e);
+            Mensagens mensagens = new Mensagens();
+            mensagens.apresentaMensagem(e);
 	}
         
     }
@@ -54,7 +56,8 @@ public class ProdutoDao {
             this.connection.close();
 	}
         catch(SQLException e){
-            throw new RuntimeException(e);
+            Mensagens mensagens = new Mensagens();
+            mensagens.apresentaMensagem(e);
 	}
         
     }
@@ -68,7 +71,8 @@ public class ProdutoDao {
             this.connection.close();
         }
 	catch(SQLException e){
-            throw new RuntimeException(e);
+            Mensagens mensagens = new Mensagens();
+            mensagens.apresentaMensagem(e);
 	}
     }
     public Produto consultar(long id){
@@ -89,8 +93,10 @@ public class ProdutoDao {
             return produto;
         }
         catch(SQLException e){
-            throw new RuntimeException(e);
+            Mensagens mensagens = new Mensagens();
+            mensagens.apresentaMensagem(e);
         }
+        return null;
     }
     public List<Produto> consultar(){
         
@@ -99,7 +105,6 @@ public class ProdutoDao {
             List<Produto> produtos = new ArrayList<Produto>();
             PreparedStatement ptmt = this.connection.prepareStatement("SELECT * FROM PRODUTO;");
             ResultSet resultSet = ptmt.executeQuery();
-            
             
             while(resultSet.next()){
             
@@ -115,8 +120,10 @@ public class ProdutoDao {
             return produtos;
         }
         catch(SQLException e){
-            throw new RuntimeException(e);
+            Mensagens mensagens = new Mensagens();
+            mensagens.apresentaMensagem(e);
         }
+        return null;
     }
     
 }

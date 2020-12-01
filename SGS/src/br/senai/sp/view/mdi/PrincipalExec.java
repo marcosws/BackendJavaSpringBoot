@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.senai.sp.view;
+package br.senai.sp.view.mdi;
 
-import br.senai.sp.view.common.PrincipalMDI;
-import br.senai.sp.view.common.PrincipalSize;
+import br.senai.sp.model.service.CommonService;
 import br.senai.sp.view.common.SgsConstantes;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -23,7 +22,8 @@ public interface PrincipalExec {
         java.awt.EventQueue.invokeLater(() -> {
                 
             PrincipalMDI principalMdi = new PrincipalMDI();
-            principalMdi.setTitle(SgsConstantes.NOME_SISTEMA);
+            CommonService commonService = new CommonService();
+            principalMdi.setTitle(SgsConstantes.NOME_SISTEMA + " - [" + commonService.getNameDataBase() + "]");
             principalMdi.inicializa();
             principalMdi.setJMenuBar(principalMdi.getMenuSistema());
             principalMdi.getContentPane().add(principalMdi.getStatusBar(), java.awt.BorderLayout.SOUTH);

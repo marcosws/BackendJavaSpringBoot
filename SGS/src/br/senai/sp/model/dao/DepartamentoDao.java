@@ -6,6 +6,7 @@
 package br.senai.sp.model.dao;
 
 import br.senai.sp.model.entity.Departamento;
+import br.senai.sp.model.service.Mensagens;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -32,7 +33,8 @@ public class DepartamentoDao {
             this.connection.close();
 	}
         catch(SQLException e){
-            throw new RuntimeException(e);
+            Mensagens mensagens = new Mensagens();
+            mensagens.apresentaMensagem(e);
 	}
     }
     public void alterar(Departamento departamento){
@@ -48,7 +50,8 @@ public class DepartamentoDao {
             this.connection.close();
 	}
         catch(SQLException e){
-            throw new RuntimeException(e);
+            Mensagens mensagens = new Mensagens();
+            mensagens.apresentaMensagem(e);
 	}
     }
     public void excluir(Departamento departamento){
@@ -62,7 +65,8 @@ public class DepartamentoDao {
             this.connection.close();
         }
 	catch(SQLException e){
-            throw new RuntimeException(e);
+            Mensagens mensagens = new Mensagens();
+            mensagens.apresentaMensagem(e);
 	}
     }
     public Departamento consultar(long id){
@@ -81,8 +85,10 @@ public class DepartamentoDao {
             return departamento;
         }
         catch(SQLException e){
-            throw new RuntimeException(e);
+            Mensagens mensagens = new Mensagens();
+            mensagens.apresentaMensagem(e);
         }
+        return null;
     }
     public List<Departamento> consultar(){
     
@@ -105,8 +111,10 @@ public class DepartamentoDao {
             return departamentos;
         }
         catch(SQLException e){
-            throw new RuntimeException(e);
+            Mensagens mensagens = new Mensagens();
+            mensagens.apresentaMensagem(e);
         }
+        return null;
     }
     
 }

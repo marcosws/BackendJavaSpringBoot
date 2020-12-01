@@ -6,6 +6,7 @@
 package br.senai.sp.model.dao;
 
 import br.senai.sp.model.entity.Saida;
+import br.senai.sp.model.service.Mensagens;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -26,7 +27,7 @@ public class SaidaDao {
     public void inserir(Saida saida){
         
         this.connection = new Conexao().getConnection();
-        String sql = "INSERT INTO SAIDA (DT, ID_COMPRA, ID_ESTOQUE, ID_PRODUTO) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO SAIDA (DT, QUANTIDADE, ID_COMPRA, ID_PRODUTO) VALUES (?,?,?,?)";
         try{
             PreparedStatement stmt = connection.prepareStatement(sql);	
             stmt.setDate(1, new Date(saida.getData().getTimeInMillis()));
@@ -38,27 +39,28 @@ public class SaidaDao {
             this.connection.close();
 	}
         catch(SQLException e){
-            throw new RuntimeException(e);
+            Mensagens mensagens = new Mensagens();
+            mensagens.apresentaMensagem(e);
 	}
         
     }
     public void alterar(Saida saida){
         
         this.connection = new Conexao().getConnection();
-        String sql = "UPDATE SAIDA SET DT=?, ID_COMPRA=?, ID_ESTOQUE=?, ID_PRODUTO=? WHERE ID=?;";
+        String sql = "UPDATE SAIDA SET QUANTIDADE=?, ID_COMPRA=?, ID_PRODUTO=? WHERE ID=?;";
         try{
             PreparedStatement stmt = connection.prepareStatement(sql);	
-            stmt.setDate(1, new Date(saida.getData().getTimeInMillis()));
-            stmt.setInt(2, saida.getQuantidade());
-            stmt.setLong(3, saida.getIdCompra());
-            stmt.setLong(4, saida.getIdProduto());
-            stmt.setLong(5, saida.getId());
+            stmt.setInt(1, saida.getQuantidade());
+            stmt.setLong(2, saida.getIdCompra());
+            stmt.setLong(3, saida.getIdProduto());
+            stmt.setLong(4, saida.getId());
             stmt.execute();
             stmt.close();	
             this.connection.close();
 	}
         catch(SQLException e){
-            throw new RuntimeException(e);
+            Mensagens mensagens = new Mensagens();
+            mensagens.apresentaMensagem(e);
 	}
     }
     public void excluir(Saida saida){
@@ -71,7 +73,8 @@ public class SaidaDao {
             this.connection.close();
         }
 	catch(SQLException e){
-            throw new RuntimeException(e);
+            Mensagens mensagens = new Mensagens();
+            mensagens.apresentaMensagem(e);
 	}
     }
     public Saida consultar(long id){
@@ -96,8 +99,10 @@ public class SaidaDao {
             return saida;
         }
         catch(SQLException e){
-            throw new RuntimeException(e);
+            Mensagens mensagens = new Mensagens();
+            mensagens.apresentaMensagem(e);
         }
+        return null;
         
     }
     public List<Saida> consultar(){
@@ -125,8 +130,10 @@ public class SaidaDao {
             return saidas;
         }
         catch(SQLException e){
-            throw new RuntimeException(e);
+            Mensagens mensagens = new Mensagens();
+            mensagens.apresentaMensagem(e);
         }
+        return null;
         
     }
     

@@ -8,7 +8,7 @@ package br.senai.sp.view.chid;
 import br.senai.sp.controller.ControllerSaida;
 import br.senai.sp.view.common.GridView;
 import br.senai.sp.view.common.Operacao;
-import br.senai.sp.view.common.PrincipalSize;
+import br.senai.sp.view.mdi.PrincipalSize;
 import br.senai.sp.view.common.SgsConstantes;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -29,9 +29,7 @@ public class SaidaChild extends GenericChild{
     private JTextField txtId;
     private JTextField txtData;
     private JTextField txtQuantidade;
-    private JTextField txtTotal;
-    private JComboBox cbProduto;
-    private JTextField txtPreco;
+    private JComboBox cbCompra;
     private String operacao;
     private GridView gridView;
     
@@ -39,20 +37,12 @@ public class SaidaChild extends GenericChild{
         return gridView;
     }
 
+    public JComboBox getCbCompra() {
+        return cbCompra;
+    }
+
     public JTextField getTxtQuantidade() {
         return txtQuantidade;
-    }
-
-    public JTextField getTxtTotal() {
-        return txtTotal;
-    }
-
-    public JComboBox getCbProduto() {
-        return cbProduto;
-    }
-
-    public JTextField getTxtPreco() {
-        return txtPreco;
     }
 
     public JTextField getTxtId() {
@@ -78,11 +68,9 @@ public class SaidaChild extends GenericChild{
         txtId = new JTextField();
         txtData = new JTextField();
         txtQuantidade = new JTextField();
-        txtTotal = new JTextField();
-        cbProduto = new JComboBox();   
-        txtPreco = new JTextField();
-        
-               JLabel lbId = new JLabel("Id:");
+        cbCompra = new JComboBox();   
+
+        JLabel lbId = new JLabel("Id:");
         lbId.setBounds(20, 120, 500, 20);
         txtId.setBounds(20, 140, 100, 20);
         txtId.setEditable(false);
@@ -92,66 +80,48 @@ public class SaidaChild extends GenericChild{
         txtData.setBounds(20, 180, 100, 20);
         txtData.setEditable(false);
         
-        JLabel lbProduto = new JLabel("Produto:");
-        lbProduto.setBounds(20, 200, 500, 20);
-        cbProduto.setBounds(20, 220, 700, 20);
+        JLabel lbCompra = new JLabel("Compra:");
+        lbCompra.setBounds(20, 200, 500, 20);
+        cbCompra.setBounds(20, 220, 700, 20);
         
         JLabel lbQuantidade = new JLabel("Quantidade Retirada:");
         lbQuantidade.setBounds(20, 240, 500, 20);
         txtQuantidade.setBounds(20, 260, 200, 20);
-        
-        JLabel lbPreco = new JLabel("Preço por unidade:");
-        lbPreco.setBounds(20, 280, 500, 20);
-        txtPreco.setBounds(20, 300, 200, 20);
-        txtPreco.setEditable(false);
-        
-        JLabel lbTotal = new JLabel("Total Estoque:");
-        lbTotal.setBounds(20, 320, 500, 20);
-        txtTotal.setBounds(20, 340, 200, 20);
-        txtTotal.setEditable(false);
-        
-        JLabel lbComprasCadastrados = new JLabel("Compras Cadastradas:");
-        lbComprasCadastrados.setBounds(20, 360, 500, 20);
+       
+        JLabel lbSaidasCadastrados = new JLabel("Saidas Cadastradas:");
+        lbSaidasCadastrados.setBounds(20, 280, 500, 20);
         gridView = new GridView();
         gridView.getModel().addColumn("Id"); 
         gridView.getModel().addColumn("Data"); 
-        gridView.getModel().addColumn("Preco"); 
         gridView.getModel().addColumn("Quantidade"); 
-        gridView.getModel().addColumn("Total"); 
-        gridView.getModel().addColumn("Produto"); 
+        gridView.getModel().addColumn("Compra"); 
         gridView.getTable().addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 int row = gridView.getTable().getSelectedRow();
                 txtId.setText(gridView.getTable().getModel().getValueAt(row, 0).toString());
                 txtData.setText(gridView.getTable().getModel().getValueAt(row, 1).toString());
-                txtPreco.setText(gridView.getTable().getModel().getValueAt(row, 2).toString());
-                txtQuantidade.setText(gridView.getTable().getModel().getValueAt(row, 3).toString());
-                txtTotal.setText(gridView.getTable().getModel().getValueAt(row, 4).toString());
-                String produtoGrid = gridView.getTable().getModel().getValueAt(row, 5).toString();
-                for(int i = 0;i < cbProduto.getItemCount();i++){
-                    if(cbProduto.getModel().getElementAt(i).toString().contains(produtoGrid)){
-                        cbProduto.getModel().setSelectedItem(cbProduto.getModel().getElementAt(i).toString());
+                txtQuantidade.setText(gridView.getTable().getModel().getValueAt(row, 2).toString());
+                String compraGrid = gridView.getTable().getModel().getValueAt(row, 3).toString();
+                for(int i = 0;i < cbCompra.getItemCount();i++){
+                    if(cbCompra.getModel().getElementAt(i).toString().contains(compraGrid)){
+                        cbCompra.getModel().setSelectedItem(cbCompra.getModel().getElementAt(i).toString());
                     }
                 }
                
             }
         });
-        gridView.getjScrollPane().setBounds(20, 380, 700, 200);
+        gridView.getjScrollPane().setBounds(20, 300, 700, 200);
 
         panel.add(lbId);
         panel.add(lbData);
-        panel.add(lbProduto);
+        panel.add(lbCompra);
         panel.add(lbQuantidade);
-        panel.add(lbPreco);
-        panel.add(lbTotal);
-        panel.add(lbComprasCadastrados);
+        panel.add(lbSaidasCadastrados);
         panel.add(txtId);
         panel.add(txtData);
-        panel.add(cbProduto);
+        panel.add(cbCompra);
         panel.add(txtQuantidade);
-        panel.add(txtPreco);
-        panel.add(txtTotal);
         panel.add(gridView.getjScrollPane());
         
         frame.getContentPane().add(panel);
@@ -160,7 +130,11 @@ public class SaidaChild extends GenericChild{
         frame.setVisible(true);
         
     }
-
+    public void inicializa(){
+        ControllerSaida controllerSaida = new ControllerSaida();
+        controllerSaida.carregarCombo(this);
+        this.carregaDataCorrente();
+    }
     @Override
     public void actionPerformed(ActionEvent evento) {
         
@@ -219,10 +193,8 @@ public class SaidaChild extends GenericChild{
     }
     public void limparCampos(){
         txtId.setText("");
-        txtPreco.setText("");
         txtData.setText("");
         txtQuantidade.setText("");
-        txtTotal.setText("");
     }
     private void carregaDataCorrente(){ 
         txtData.setText(this.dataCorrente()); 

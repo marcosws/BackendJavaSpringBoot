@@ -8,7 +8,7 @@ package br.senai.sp.view.chid;
 import br.senai.sp.controller.ControllerProduto;
 import br.senai.sp.view.common.GridView;
 import br.senai.sp.view.common.Operacao;
-import br.senai.sp.view.common.PrincipalSize;
+import br.senai.sp.view.mdi.PrincipalSize;
 import br.senai.sp.view.common.SgsConstantes;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;

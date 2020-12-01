@@ -39,6 +39,7 @@ public class ControllerDepartamento implements IController{
 
     @Override
     public void excluir(Object view) {
+        
         departamentoChild = (DepartamentoChild) view;
         DepartamentoDao departamentoDao = new DepartamentoDao();
         Departamento departamento = new Departamento();
