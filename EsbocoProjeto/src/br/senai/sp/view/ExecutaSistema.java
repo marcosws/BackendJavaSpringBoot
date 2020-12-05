@@ -37,3 +37,12 @@ public class ExecutaSistema {
     }
     
 }
+/*
+
+Properties connectionProperties = new Properties();
+SQLiteConfig config = new SQLiteConfig();
+config.enforceForeignKeys(true);
+connectionProperties = config.toProperties();
+private final String connectionString = String.format("jdbc:sqlite:%s", absolute_path_to_sqlite_db);
+Connection connection = DriverManager.getConnection(connectionString, connectionProperties);
+*/

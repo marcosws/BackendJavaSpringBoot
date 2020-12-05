@@ -1,0 +1,215 @@
+
+
+
+/* Reset de página/propiedade */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face{
+    font-family:  Manrope-Regular; 
+    src: url('../font/Manrope/static/Manrope-Regular.ttf');
+}
+@font-face{
+    font-family:  Manrope-Bold; 
+    src: url('../font/Manrope/static/Manrope-Bold.ttf');
+}
+@font-face{
+    font-family:  Manrope-ExtraBold; 
+    src: url('../font/Manrope/static/Manrope-BoldItalic.ttf');
+}
+html{
+    font-family: 'Manrope-Regular', sans-serif;
+    background-image: url('../img/fundo.jpg');
+    background-color: black;
+    background-size: cover;
+}
+html, body, #body {
+    min-height: 100% !important;
+    height: 100%;
+}
+h1{
+    font-family: 'Manrope-ExtraBold', sans-serif;
+}
+#subtitulo{
+    font-family: 'Manrope-Bold', sans-serif;
+    font-size: 12px;
+}
+
+#cabecalho{
+    background-color: gold;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+#menu{
+    width: 90%;
+    text-align: right;
+    display: inline-block;
+}
+#menu a:hover{
+    border-bottom: 4px solid red;
+    color: red;
+    text-shadow: 2px 2px yellow;
+}
+#logo{
+    display: inline-block;                 
+    width: 40%;/* 25%; */
+    vertical-align: middle;
+    line-height: 30px; 
+    padding-top: 20px;
+}
+#menu a{
+    font-family: 'Manrope-Bold', sans-serif;
+    font-size: 12px;
+    display: inline-block;
+    width: 120px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    color: black; 
+    text-decoration: none;
+    border-bottom: 4px solid black;
+}
+a#selected{
+    color: red;
+    border-bottom: 4px solid red;
+}
+#body{
+    margin: 0; 
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+#container{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 20px; 
+    border: 2px solid gold;
+    min-height: 700px;
+    background-color: white;
+    /* color: goldenrod; */
+    color: black;
+    padding-top: 20px;
+    padding-left: 20px;
+    
+    position: relative;
+}
+#footer{
+    font-family: 'Manrope-Bold', sans-serif;
+    width: 100%;
+    background-color: gold;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: black;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+}
+.btn-formulario{
+    margin-top: 10px;
+    width: 90px;
+    height: 30px;
+    background-color: gold;
+    border: none;
+}
+.txt-formulario,
+.cb-formulario{
+    border: 2px solid gold;
+    height: 30px;
+}
+#cb-departamento,
+#cb-marca,
+#nome-departamento,
+#nome-marca,
+#empresa-marca{
+    width: 280px;
+}
+
+table{
+    margin-top: 10px;
+    font-family: 'Manrope-Bold', sans-serif;
+    border: 2px solid gold;
+    font-size: 12px;
+}
+table caption{
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+table a{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
+    color: navy;
+}
+table a:hover{
+    color: red;
+}
+
+thead, 
+tbody{
+    display: block;
+}
+tbody{
+    overflow-y: scroll;
+    height: 210px;
+}
+th,  
+td{ 
+    border-bottom: 1px solid black;
+} 
+tr:nth-child(even) { 
+     background-color:lightyellow;
+}
+tr:nth-child(odd) { 
+    background-color:whitesmoke;
+}
+caption,
+th{ 
+    background-color: gold;
+    text-shadow: none;
+    color: black;
+}
+td{
+    color: black;
+}
+.marca-coluna4{
+    text-align: center;
+    width: 120px;
+}
+.departamento-coluna1{
+    text-align: center;
+    width: 30px;
+}
+.marca-coluna2,
+.marca-coluna3,
+.departamento-coluna2{
+     width: 240px;
+}
+.marca-coluna1,
+.compra-coluna1,
+.produto-coluna1{
+    text-align: center;
+    width: 30px;
+}
+.compra-coluna3,
+.compra-coluna4,
+.compra-coluna5,
+.compra-coluna6,
+.produto-coluna2,
+.produto-coluna3,
+.produto-coluna4,
+.produto-coluna5{
+    width: 200px;
+}
+.departamento-coluna3,
+.compra-coluna2,
+.compra-coluna7,
+.produto-coluna6{
+    text-align: center;
+    width: 120px;
+}
