@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/style.css">
-        <title>::: SGS :::</title>
+        <title>::: SGS Home :::</title>
     </head>
     <body>
         <div id="body">
@@ -32,7 +32,23 @@
             <div id="container">
                 <h1>Home</h1>
                 <p>Sistema de Gerenciamento de Suprimentos</p>
-                
+                <div id="conteudo">
+                    <h4>Cadastro</h4>
+                    <ul>
+                        <li>Marca</li>
+                        <li>Departamento</li>
+                        <li>Produto</li>
+                    </ul>
+                    <h4>Operações</h4>
+                    <ul>
+                        <li>Compa</li>
+                        <li>Saida</li>
+                    </ul>
+                    <h4>Consulta</h4>
+                    <ul>
+                        <li>Estoque</li>
+                    </ul>
+                </div>
                 <div id="footer">
                     <small>SGS - Sistema de Gerenciamento de Suprimentos</small>
                 </div>

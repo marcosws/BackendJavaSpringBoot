@@ -15,12 +15,21 @@
 <%@page import="br.senai.sp.model.dao.DepartamentoDao"%>
 <%@page import="br.senai.sp.model.dao.MarcaDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    CommonService commonService = new CommonService();
+    if(request.getAttribute("operacao") == null) {request.setAttribute("operacao","Incluir");}
+    if(request.getAttribute("idSaida") == null) {request.setAttribute("idSaida","");}
+    if(request.getAttribute("dataSaida") == null) {request.setAttribute("dataSaida",commonService.getStringData());}
+    if(request.getAttribute("idCompra") == null) {request.setAttribute("idCompra","1");}
+    if(request.getAttribute("quantidadeSaida") == null) {request.setAttribute("quantidadeSaida","");}
+    if(request.getAttribute("status") == null) {request.setAttribute("status","");}
+%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/style.css">
-        <title>::: SGS :::</title>
+        <title>::: SGS Saida :::</title>
     </head>
     <body>
         <div id="body">
@@ -54,7 +63,6 @@
                     <label for="cb-compra">Compra:</label><br />
                     <select id="cb-compra" class="cb-formulario" name="idCompra">
                         <% 
-                            CommonService commonService = new CommonService();
                             MarcaDao marcaDao = new MarcaDao();
                             DepartamentoDao departamentoDao = new DepartamentoDao();
                             ProdutoDao produtoDao = new ProdutoDao();
@@ -88,13 +96,13 @@
                 </form>
                 <div id="tabela">
                     <table>
-                        <caption>Compra</caption>
+                        <caption>Saida</caption>
                         <tr>
-                            <th class="compra-coluna1">Id</th>
-                            <th class="compra-coluna2">Data</th>
-                            <th class="compra-coluna4">Quantidade</th>
-                            <th class="compra-coluna5">Compra</th>
-                            <th class="compra-coluna7">Operação</th>
+                            <th class="saida-coluna1">Id</th>
+                            <th class="saida-coluna2">Data</th>
+                            <th class="saida-coluna3">Quantidade</th>
+                            <th class="saida-coluna4">Compra</th>
+                            <th class="saida-coluna5">Operação</th>
                         </tr>
                         <%
                             SaidaDao saidaDao = new SaidaDao();
@@ -102,17 +110,19 @@
                             for(Saida s: saidas){
                         %>
                         <tr>
-                            <td class="compra-coluna1"><%=s.getId() %></td>
-                            <td class="compra-coluna2"><%=commonService.getStringData(s.getData()) %></td>
-                            <td class="compra-coluna4"><%=s.getQuantidade() %></td>
-                            <td class="compra-coluna6"><%=compraDao.consultar(s.getIdCompra()).getId() + " | Preço: " + compraDao.consultar(s.getIdCompra()).getPreco() %></td>                              
-                            <td class="compra-coluna7"><a href="Saida?idSaida=<%=s.getId() %>&operacao=Alterar&editar=S" >Alterar</a> | <a href="Saida?idSaida=<%=s.getId() %>&operacao=Excluir&editar=S" >Excluir</a></td>
+                            <td class="saida-coluna1"><%=s.getId() %></td>
+                            <td class="saida-coluna2"><%=commonService.getStringData(s.getData()) %></td>
+                            <td class="saida-coluna3"><%=s.getQuantidade() %></td>
+                            <td class="saida-coluna4"><%=compraDao.consultar(s.getIdCompra()).getId() + " | Preço: " + compraDao.consultar(s.getIdCompra()).getPreco() %></td>                              
+                            <td class="saida-coluna5"><a href="Saida?idSaida=<%=s.getId() %>&operacao=Alterar&editar=S" >Alterar</a> | <a href="Saida?idSaida=<%=s.getId() %>&operacao=Excluir&editar=S" >Excluir</a></td>
                         </tr>
                         <%
                             }
                         %>
-                    </table><br /><br /><br />
-                
+                    </table>
+                    <label id="status">  <%=request.getAttribute("status")%></label>
+                    <br /><br /><br />
+                </div>
                 <div id="footer">
                     <small>SGS - Sistema de Gerenciamento de Suprimentos</small>
                 </div>
