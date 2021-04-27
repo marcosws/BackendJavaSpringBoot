@@ -42,11 +42,13 @@ public class ControllerMarca implements IController{
 
     @Override
     public void excluir(Object view) {
+        
         marcaChild = (MarcaChild) view;
         MarcaDao marcaDao = new MarcaDao();
         Marca marca = new Marca();
         marca.setId(Long.parseLong(marcaChild.getTxtId().getText()));
         marcaDao.excluir(marca);
+        
     }
 
     @Override
